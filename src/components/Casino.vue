@@ -1,6 +1,6 @@
 <template>
   <div class="casino-container">
-    <h1>🎰 Casino Game 🎰</h1>
+    <h1>Casino Game</h1>
 
     <!-- Mensajes de fin de juego -->
     <div v-if="juegoTerminado" class="mensaje-final">
@@ -38,10 +38,6 @@
         class="btn-jugar"
       >
         {{ isPlaying ? 'Jugando...' : 'JUGAR' }}
-      </button>
-
-      <button @click="nuevoJuego" class="btn-nuevo-juego-secundario">
-        Nuevo Juego
       </button>
     </div>
   </div>
@@ -174,147 +170,67 @@ export default {
 
 <style scoped>
 .casino-container {
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
 }
 
 h1 {
-  color: #FFD700;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
-  font-size: 3em;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .info-juego {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 .intentos, .puntaje {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #333;
-  margin: 0;
+  display: inline-block;
+  margin: 0 20px;
 }
 
 .slots-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-bottom: 30px;
+  gap: 15px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
 .btn-jugar {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: white;
-  border: none;
-  padding: 20px 60px;
-  font-size: 2em;
-  font-weight: bold;
-  border-radius: 15px;
+  padding: 10px 30px;
+  font-size: 1.2em;
   cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-  margin: 10px;
-}
-
-.btn-jugar:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+  margin: 5px;
 }
 
 .btn-jugar:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-.btn-nuevo-juego-secundario {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  color: white;
-  border: none;
-  padding: 15px 40px;
-  font-size: 1.3em;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 10px;
-}
-
-.btn-nuevo-juego-secundario:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-}
-
 .mensaje-final {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 50px;
-  border-radius: 20px;
-  margin-top: 50px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
 }
 
 .mensaje-ganador p {
   color: #0066cc;
-  font-size: 2em;
-  font-weight: bold;
-  margin: 20px 0;
-}
-
-.mensaje-ganador .felicitaciones {
-  font-size: 2.5em;
+  margin: 10px 0;
 }
 
 .mensaje-perdedor p {
   color: #cc0000;
-  font-size: 2em;
-  font-weight: bold;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .btn-nuevo-juego {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  color: white;
-  border: none;
-  padding: 20px 50px;
-  font-size: 1.8em;
-  font-weight: bold;
-  border-radius: 15px;
+  padding: 10px 30px;
+  font-size: 1.2em;
   cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-  margin-top: 30px;
-}
-
-.btn-nuevo-juego:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-}
-
-@media (max-width: 768px) {
-  .slots-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  h1 {
-    font-size: 2em;
-  }
-  
-  .btn-jugar {
-    padding: 15px 40px;
-    font-size: 1.5em;
-  }
+  margin-top: 15px;
 }
 </style>

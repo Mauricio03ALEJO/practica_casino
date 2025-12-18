@@ -31,49 +31,28 @@ export default {
 
 <style scoped>
 .slot-item {
+  border: 1px solid #ccc;
+  padding: 10px;
   background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  width: 200px;
-  transition: transform 0.3s;
-}
-
-.slot-item:hover {
-  transform: scale(1.05);
 }
 
 .imagen-container {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 15px;
-  min-height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px;
+  text-align: center;
 }
 
 .slot-imagen {
-  max-width: 120px;
-  max-height: 120px;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+  width: 80px;
+  height: 80px;
 }
 
 .texto-container {
-  background: #2c3e50;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 5px;
+  text-align: center;
 }
 
 .slot-texto {
-  color: white;
-  font-size: 1.5em;
-  font-weight: bold;
   margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: bold;
 }
 </style>
