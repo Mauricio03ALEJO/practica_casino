@@ -1,13 +1,13 @@
 <template>
-  <CasinoView />
+    <Casino />
 </template>
 
 <script>
-import CasinoView from './view/CasinoView.vue';
+import Casino from '../components/Casino.vue';
 export default {
   components: {
-    CasinoView
-  }   
+    Casino
+  }     
 }
 </script>
 
