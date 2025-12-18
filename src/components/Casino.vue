@@ -43,6 +43,7 @@
 
 <script>
 import SlotItem from './SlotItem.vue';
+
 import { consumirAPIFacada } from '../clients/YesNoClient.js';
 
 export default {
@@ -84,19 +85,15 @@ export default {
       this.intentos++;
 
       try {
-        const promesas = [
-          consumirAPIFacada(),
-          consumirAPIFacada(),
-          consumirAPIFacada()
-        ];
-
-        const resultados = await Promise.all(promesas);
-
-        resultados.forEach((resultado, index) => {
-          this.slots[index].imagen = resultado.image;
-          this.slots[index].texto = resultado.answer;
-          this.slots[index].mostrarTexto = true;
-        });
+        const resultados = [];
+        
+        for (let i = 0; i < this.slots.length; i++) {
+          const response = await consumirAPIFacada();
+          this.slots[i].imagen = response.image;
+          this.slots[i].texto = response.answer;
+          this.slots[i].mostrarTexto = true;
+          resultados.push(response);
+        }
 
         this.calcularPuntaje(resultados);
 
