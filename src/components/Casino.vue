@@ -2,7 +2,6 @@
   <div class="casino-container">
     <h1>Casino Game</h1>
 
-    <!-- Mensajes de fin de juego -->
     <div v-if="juegoTerminado" class="mensaje-final">
       <div v-if="gano" class="mensaje-ganador">
         <p class="puntaje-final">Puntaje: {{ puntaje }}</p>
@@ -15,7 +14,6 @@
       <button @click="nuevoJuego" class="btn-nuevo-juego">Nuevo Juego</button>
     </div>
 
-    <!-- Juego activo -->
     <div v-else>
       <div class="info-juego">
         <p class="intentos">Intentos: {{ intentos }} / 5</p>
@@ -86,7 +84,6 @@ export default {
       this.intentos++;
 
       try {
-        // Consumir API 3 veces (una por cada slot)
         const promesas = [
           consumirAPIFacada(),
           consumirAPIFacada(),
@@ -95,17 +92,14 @@ export default {
 
         const resultados = await Promise.all(promesas);
 
-        // Actualizar cada slot con su resultado
         resultados.forEach((resultado, index) => {
           this.slots[index].imagen = resultado.image;
           this.slots[index].texto = resultado.answer;
           this.slots[index].mostrarTexto = true;
         });
 
-        // Calcular puntaje
         this.calcularPuntaje(resultados);
 
-        // Verificar si terminó el juego
         if (this.puntaje >= 10) {
           this.juegoTerminado = true;
           this.gano = true;
